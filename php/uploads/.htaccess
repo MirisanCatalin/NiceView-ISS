@@ -1,0 +1,23 @@
+<?php
+/**
+ * NiceView - .htaccess pentru securizarea directorului uploads/
+ * 
+ * Dezactivează execuția scripturilor PHP în directorul de uploads
+ * pentru a preveni executarea de shell-uri PHP încărcate.
+ * 
+ * NOTĂ: Acest fișier trebuie copiat în php/uploads/.htaccess
+ */
+header('Content-Type: text/plain');
+echo "Acesta este un fișier .htaccess pentru directorul uploads/.\n";
+echo "Conținut recomandat:\n\n";
+?>
+# Blochează accesul direct la fișiere PHP
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phar|pht|phps|shtml)$">
+    Deny from all
+</FilesMatch>
+
+# Dezactivează execuția PHP
+php_flag engine off
+
+# Previne listarea directoarelor
+Options -Indexes

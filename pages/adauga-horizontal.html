@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiceView - Adaugă priveliște</title>
+    <link rel="icon" type="image/x-icon" href="../images/adauga.jpg">
+    <link rel="stylesheet" href="../css/style-horizontal.css">
+    <link rel="stylesheet" href="../css/style-js.css">
+</head>
+<body>
+
+<header>
+    <h1>NiceView</h1>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="index-horizontal.html" class="sprite-acasa">Acasă</a>
+            <ul class="dropdown-content">
+                <li><a href="index-horizontal.html">Vedere generală</a></li>
+                <li><a href="index-horizontal.html#privelisti">Priveliști</a></li>
+                <li><a href="index-horizontal.html#statistici">Statistici</a></li>
+            </ul>
+        </li>
+        <li><a href="adauga-horizontal.html" class="sprite-adauga">Adaugă priveliște</a></li>
+        <li><a href="dashboard-horizontal.html" class="sprite-dashboard">Dashboard</a></li>
+        <li><a href="sprites-horizontal.html" class="sprite-galerie">Galerie</a></li>
+        <li><a href="harta-horizontal.html" class="sprite-harta">Hartă</a></li>
+        <li><a href="login-horizontal.html">Login</a></li>
+        <li><a href="contact-horizontal.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Adaugă o priveliște</h2>
+
+    <form action="#" method="post" name="formular_priveliste">
+
+        <fieldset>
+            <legend><strong>Date generale</strong></legend>
+
+            <p>
+                <label for="nume">Nume utilizator:</label>
+                <input type="text" id="nume" name="nume" maxlength="30">
+            </p>
+
+            <p>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" maxlength="40">
+            </p>
+
+            <p>
+                <label for="titlu">Titlu priveliște:</label>
+                <input type="text" id="titlu" name="titlu" maxlength="50">
+            </p>
+
+            <p>
+                <label for="judet">Județ:</label>
+                <select id="judet" name="judet">
+                    <option value="">-- Selectați județul --</option>
+                    <option value="CJ">Cluj</option>
+                    <option value="BV">Brașov</option>
+                    <option value="CT">Constanța</option>
+                    <option value="HR">Harghita</option>
+                    <option value="SJ">Sălaj</option>
+                    <option value="MM">Maramureș</option>
+                    <option value="AB">Alba</option>
+                    <option value="SB">Sibiu</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="localitate">Localitate:</label>
+                <select id="localitate" name="localitate">
+                    <option value="">-- Selectați mai întâi județul --</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="tara">Țară:</label>
+                <input type="text" id="tara" name="tara" value="România" readonly>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Tip priveliște</strong></legend>
+            <p>
+                <label for="tip_select">Tip:</label>
+                <select id="tip_select" name="tip">
+                    <option value="munte">Munte</option>
+                    <option value="mare">Mare</option>
+                    <option value="lac">Lac</option>
+                    <option value="oras">Oraș</option>
+                </select>
+            </p>
+            <label><input type="radio" name="tip_radio" value="munte" checked> Munte</label>
+            <label><input type="radio" name="tip_radio" value="mare"> Mare</label>
+            <label><input type="radio" name="tip_radio" value="lac"> Lac</label>
+            <label><input type="radio" name="tip_radio" value="oras"> Oraș</label>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Facilități și acces</strong></legend>
+            <label><input type="checkbox" name="acces_auto" value="da" checked> Acces auto</label>
+            <label><input type="checkbox" name="ghid" value="da"> Ghid turistic</label>
+            <label><input type="checkbox" name="campare" value="da"> Posibilitate campare</label>
+
+            <p>
+                <label for="dificultate">Nivel dificultate:</label>
+                <select id="dificultate" name="dificultate" multiple size="3">
+                    <option value="usor">Ușor</option>
+                    <option value="mediu">Mediu</option>
+                    <option value="dificil">Dificil</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="data_vizita">Data vizitei:</label>
+                <input type="date" id="data_vizita" name="data_vizita">
+            </p>
+
+            <p>
+                <label for="imagine_upload">Încarcă imagine:</label>
+                <input type="file" id="imagine_upload" name="imagine_upload" accept="image/*">
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Detalii suplimentare</strong></legend>
+
+            <p>
+                <label for="altitudine">Altitudine (max 3000 m):</label>
+                <input type="number" id="altitudine" name="altitudine" min="0" max="3000" step="1">
+            </p>
+
+            <p>
+                <label for="descriere">Descriere:</label>
+                <textarea id="descriere" name="descriere" cols="40" rows="5"></textarea>
+            </p>
+
+            <p>
+                <label for="website">Website (opțional):</label>
+                <input type="text" id="website" name="website" placeholder="https://...">
+            </p>
+
+            <p>
+                <label><input type="checkbox" name="regulament" value="da"> Sunt de acord cu regulamentul</label>
+            </p>
+
+            <p>
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" value="În așteptare" disabled>
+            </p>
+        </fieldset>
+
+        <div class="form-buttons">
+            <input type="submit" value="Trimite">
+            <input type="reset" value="Resetează">
+        </div>
+
+    </form>
+</main>
+
+<footer>
+    <p>NiceView &copy; 2026</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/date.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/validare.js"></script>
+
+</body>
+</html>

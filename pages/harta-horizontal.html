@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiceView - Hartă interactivă</title>
+    <link rel="stylesheet" href="../css/style-horizontal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+<header>
+    <h1>NiceView</h1>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="index-horizontal.html" class="sprite-acasa">Acasă</a>
+            <ul class="dropdown-content">
+                <li><a href="index-horizontal.html">Vedere generală</a></li>
+                <li><a href="index-horizontal.html#privelisti">Priveliști</a></li>
+                <li><a href="index-horizontal.html#statistici">Statistici</a></li>
+            </ul>
+        </li>
+        <li><a href="adauga-horizontal.html" class="sprite-adauga">Adaugă priveliște</a></li>
+        <li><a href="dashboard-horizontal.html" class="sprite-dashboard">Dashboard</a></li>
+        <li><a href="sprites-horizontal.html" class="sprite-galerie">Galerie</a></li>
+        <li><a href="harta-horizontal.html" class="sprite-harta">Hartă</a></li>
+        <li><a href="login-horizontal.html">Login</a></li>
+        <li><a href="contact-horizontal.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Hartă interactivă priveliști</h2>
+
+    <div id="harta-controls">
+        <label for="filtru-tip">Filtrează după tip:</label>
+        <select id="filtru-tip">
+            <option value="">Toate tipurile</option>
+            <option value="munte">Munte</option>
+            <option value="lac">Lac</option>
+            <option value="mare">Mare</option>
+            <option value="oras">Oraș</option>
+        </select>
+        <div id="harta-legenda">
+            <span class="legenda-item legenda-munte">● Munte</span>
+            <span class="legenda-item legenda-lac">● Lac</span>
+            <span class="legenda-item legenda-mare">● Mare</span>
+            <span class="legenda-item legenda-oras">● Oraș</span>
+        </div>
+    </div>
+
+    <div id="harta-map"></div>
+
+</main>
+
+<footer>
+    <p>NiceView &copy; 2026</p>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/date.js"></script>
+    <script src="../js/harta.js"></script>
+    <script src="../js/tema.js"></script>
+
+</body>
+</html>

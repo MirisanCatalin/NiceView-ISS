@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiceView - Contact</title>
+    <link rel="stylesheet" href="../css/style-horizontal.css">
+    <link rel="stylesheet" href="../css/style-js.css">
+</head>
+<body>
+
+<header>
+    <h1>NiceView</h1>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="index-horizontal.html" class="sprite-acasa">Acasă</a>
+            <ul class="dropdown-content">
+                <li><a href="index-horizontal.html">Vedere generală</a></li>
+                <li><a href="index-horizontal.html#privelisti">Priveliști</a></li>
+                <li><a href="index-horizontal.html#statistici">Statistici</a></li>
+            </ul>
+        </li>
+        <li><a href="adauga-horizontal.html" class="sprite-adauga">Adaugă priveliște</a></li>
+        <li><a href="dashboard-horizontal.html" class="sprite-dashboard">Dashboard</a></li>
+        <li><a href="sprites-horizontal.html" class="sprite-galerie">Galerie</a></li>
+        <li><a href="harta-horizontal.html" class="sprite-harta">Hartă</a></li>
+        <li><a href="login-horizontal.html">Login</a></li>
+        <li><a href="contact-horizontal.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Contact</h2>
+
+    <form action="#" method="post" name="formular_contact">
+
+        <fieldset>
+            <legend><strong>Date personale</strong></legend>
+
+            <p>
+                <label for="nume">Nume complet:</label>
+                <input type="text" id="nume" name="nume" maxlength="50">
+            </p>
+
+            <p>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" maxlength="50">
+            </p>
+
+            <p>
+                <label for="telefon">Telefon (opțional):</label>
+                <input type="text" id="telefon" name="telefon" maxlength="15">
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Mesaj</strong></legend>
+
+            <p>
+                <label for="subiect">Subiect:</label>
+                <select id="subiect" name="subiect">
+                    <option value="">-- Selectați subiectul --</option>
+                    <option value="informatie">Cerere de informații</option>
+                    <option value="problema">Raportare problemă</option>
+                    <option value="sugestie">Sugestie</option>
+                    <option value="altele">Altele</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="mesaj">Mesaj (min. 10 caractere):</label>
+                <textarea id="mesaj" name="mesaj" cols="40" rows="6"></textarea>
+            </p>
+
+            <p>
+                <label for="prioritate">Prioritate:</label>
+                <select id="prioritate" name="prioritate">
+                    <option value="scazuta">Scăzută</option>
+                    <option value="normala" selected>Normală</option>
+                    <option value="ridicata">Ridicată</option>
+                    <option value="urgenta">Urgentă</option>
+                </select>
+            </p>
+
+            <p>
+                <label><input type="checkbox" name="newsletter" value="da"> Abonare newsletter</label>
+            </p>
+
+            <p>
+                <label><input type="radio" name="metoda_contact" value="email" checked> Contactați-mă prin email</label>
+                <label><input type="radio" name="metoda_contact" value="telefon"> Contactați-mă prin telefon</label>
+            </p>
+        </fieldset>
+
+        <div class="form-buttons">
+            <input type="submit" value="Trimite mesaj">
+            <input type="reset" value="Resetează">
+        </div>
+
+    </form>
+</main>
+
+<footer>
+    <p>NiceView &copy; 2026</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/date.js"></script>
+<script src="../js/tema.js"></script>
+<script src="../js/validare.js"></script>
+
+</body>
+</html>

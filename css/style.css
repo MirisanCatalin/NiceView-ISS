@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #2c3e50;
+    --hover: #34495e;
+    --accent: #3498db;
+    --text: #333;
+    --bg: #f4f6f8;
+    --card: #fff;
+}
+
+body {
+    font-family: Georgia, serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav {
+    background-color: var(--primary);
+}
+
+ul.menu {
+    display: flex;
+    list-style: none;
+}
+
+ul.menu li {
+    margin: 0;
+}
+
+ul.menu a::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/sprites.jpg");
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+ul.menu a.sprite-acasa::before { background-position: 0 0; }
+ul.menu a.sprite-adauga::before { background-position: -16px 0; }
+ul.menu a.sprite-dashboard::before { background-position: -32px 0; }
+ul.menu a.sprite-galerie::before { background-position: -48px 0; }
+ul.menu a.sprite-harta::before { background-position: -64px 0; }
+
+ul.menu a:not([class*="sprite-"])::before {
+    display: none;
+}
+
+ul.menu a:hover, ul.menu a.active {
+    background-color: var(--hover);
+}
+
+main {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: var(--card);
+}
+
+legend {
+    padding: 0 8px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 10px;
+    margin-top: 4px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+input[readonly], input[disabled] {
+    background-color: #e9ecef;
+}
+
+.form-buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+input[type="submit"], input[type="reset"] {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: Georgia, serif;
+}
+
+input[type="submit"] {
+    background-color: var(--accent);
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+input[type="reset"] {
+    background-color: #aaa;
+    color: white;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.card {
+    background-color: var(--card);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 24px;
+    min-width: 150px;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.card-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+th {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover td {
+    background-color: #f0f4f8;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 16px;
+    background-color: var(--card);
+}
+
+.error {
+    color: #c0392b;
+    background: #fdecea;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.success {
+    color: #27ae60;
+    background: #eafaf1;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    margin-top: 24px;
+}

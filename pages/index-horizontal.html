@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiceView - Acasă</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo.jpg">
+    <link rel="stylesheet" href="../css/style-horizontal.css">
+    <link rel="stylesheet" href="../css/style-js.css">
+</head>
+<body>
+
+<header>
+    <h1>NiceView</h1>
+    <h2>Platformă pentru gestionarea priveliștilor turistice</h2>
+</header>
+
+<nav>
+    <ul class="menu">
+        <li class="dropdown">
+            <a href="index-horizontal.html" class="sprite-acasa">Acasă</a>
+            <ul class="dropdown-content">
+                <li><a href="index-horizontal.html">Vedere generală</a></li>
+                <li><a href="index-horizontal.html#privelisti">Priveliști</a></li>
+                <li><a href="index-horizontal.html#statistici">Statistici</a></li>
+            </ul>
+        </li>
+        <li><a href="adauga-horizontal.html" class="sprite-adauga">Adaugă priveliște</a></li>
+        <li><a href="dashboard-horizontal.html" class="sprite-dashboard">Dashboard</a></li>
+        <li><a href="sprites-horizontal.html" class="sprite-galerie">Galerie</a></li>
+        <li><a href="harta-horizontal.html" class="sprite-harta">Hartă</a></li>
+        <li><a href="login-horizontal.html">Login</a></li>
+        <li><a href="contact-horizontal.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <div id="carousel-container">
+        <button id="carousel-playpause">Pause</button>
+    </div>
+
+    <section>
+        <h2>Tipuri de priveliști</h2>
+        <ul id="lista-colapsabila">
+            <li class="expandabil">Munți
+                <ul>
+                    <li>Vârfuri înalte</li>
+                    <li>Lacuri glaciare</li>
+                    <li>Cascade</li>
+                </ul>
+            </li>
+            <li class="expandabil">Mare
+                <ul>
+                    <li>Plaje</li>
+                    <li>Faleze</li>
+                </ul>
+            </li>
+            <li class="expandabil">Lac
+                <ul>
+                    <li>Lacuri glaciare</li>
+                    <li>Lacuri de baraj</li>
+                </ul>
+            </li>
+            <li>Oraș</li>
+        </ul>
+
+        <ol type="A">
+            <li>Primăvară</li>
+            <li>Vară</li>
+            <li>Toamnă</li>
+            <li>Iarnă</li>
+        </ol>
+
+        <ol type="I">
+            <li>Ușor</li>
+            <li>Mediu</li>
+            <li>Dificil</li>
+        </ol>
+    </section>
+
+    <section id="privelisti">
+        <h2>Priveliști populare</h2>
+        <div id="tabel-privelisti" class="table-container"></div>
+    </section>
+
+    <section>
+        <h2>Tabel vertical</h2>
+        <div id="tabel-vertical" class="table-container"></div>
+    </section>
+
+    <section id="statistici">
+        <h2>Statistici</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Total utilizatori</th>
+                    <th>Total priveliști</th>
+                    <th>Aprobate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>150</td>
+                    <td>45</td>
+                    <td>40</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<footer>
+    <p>NiceView &copy; 2026</p>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/date.js"></script>
+    <script src="../js/tema.js"></script>
+    <script src="../js/tabel.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/liste.js"></script>
+
+</body>
+</html>
